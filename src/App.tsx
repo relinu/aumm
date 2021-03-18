@@ -69,40 +69,46 @@ class App extends React.Component<Props> {
           </Toolbar>
         </AppBar>
 
-        <Drawer
-          variant="permanent"
+        <Drawer variant="permanent"
+          open={false}
           classes={{
             paper: classes.drawerPaper,
-          }}
-          open={false}>
+          }}>
           <div className={classes.appBarSpacer} />
           <List style={{ height: '100%' }}>
-            <ListItem button key="home" aria-label="Home">
-              <Link component={RouterLink} to="/home" activeClassName={classes.navActive}>
-                <ListItemAvatar>
-                  <Avatar className="avatar">
-                    <HomeRoundedIcon />
-                  </Avatar>
-                </ListItemAvatar>
-              </Link>
+            <ListItem button
+              component={RouterLink}
+              to="/home"
+              activeClassName={classes.navActive}
+              key="home">
+              <ListItemAvatar>
+                <Avatar className="avatar">
+                  <HomeRoundedIcon />
+                </Avatar>
+              </ListItemAvatar>
             </ListItem>
-            <ListItem button key="modlist" aria-label="Modlist">
-              <Link component={RouterLink} to="/modlist" activeClassName={classes.navActive}>
-                <ListItemAvatar>
-                  <Avatar className="avatar">
-                    <ViewListRoundedIcon />
-                  </Avatar>
-                </ListItemAvatar>
-              </Link>
+            <ListItem button
+              component={RouterLink}
+              to="/modlist"
+              activeClassName={classes.navActive}
+              key="modlist">
+              <ListItemAvatar>
+                <Avatar className="avatar">
+                  <ViewListRoundedIcon />
+                </Avatar>
+              </ListItemAvatar>
             </ListItem>
-            <ListItem button key="settings" aria-label="Settings" style={{ position: 'absolute', bottom: 8 }}>
-              <Link component={RouterLink} to="/settings" activeClassName={classes.navActive}>
-                <ListItemAvatar>
-                  <Avatar className="avatar">
-                    <SettingsRoundedIcon />
-                  </Avatar>
-                </ListItemAvatar>
-              </Link>
+            <ListItem button
+              component={RouterLink}
+              to="/settings"
+              activeClassName={classes.navActive}
+              key="settings"
+              style={{ position: 'absolute', bottom: 8 }}>
+              <ListItemAvatar>
+                <Avatar className="avatar">
+                  <SettingsRoundedIcon />
+                </Avatar>
+              </ListItemAvatar>
             </ListItem>
           </List>
         </Drawer>
@@ -115,8 +121,7 @@ class App extends React.Component<Props> {
             </Route>
             {
               routes.map((route, i) => (
-                <Route
-                  key={i}
+                <Route key={i}
                   path={route.path}
                   render={props => (
                     <route.component {...props} />
