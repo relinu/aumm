@@ -92,6 +92,10 @@ class Home extends React.Component<Props> {
                                     variant="outlined"
                                     size="large"
                                     disabled={!this.modInRange(state)}
+                                    onClick={() => {
+                                        const path = this.getModPath(state);
+                                        window.api.openFolder(path);
+                                    }}
                                     startIcon={<FolderOpenRoundedIcon />}>Open Folder</Button>
                             </CardContent>
                         </Card>

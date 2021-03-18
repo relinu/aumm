@@ -14,6 +14,11 @@ const styles = (theme: Theme) => createStyles({
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
+    '-webkit-user-select': 'none',
+    '-webkit-app-region': 'drag',
+    '& button': {
+      '-webkit-app-region': 'no-drag',
+    }
   },
   title: {
     flexGrow: 1,
@@ -55,10 +60,10 @@ class App extends React.Component<Props> {
             <Typography variant="h6" className={classes.title}>
               Among Us - Mod Manager
             </Typography>
-            <IconButton edge="start" color="inherit" >
+            <IconButton edge="start" color="inherit" onClick={() => { window.api.ipcSend("minimize"); }} >
               <MinimizeRoundedIcon />
             </IconButton>
-            <IconButton edge="end" color="inherit">
+            <IconButton edge="end" color="inherit" onClick={() => { window.api.ipcSend("close"); }} >
               <CloseRoundedIcon />
             </IconButton>
           </Toolbar>
